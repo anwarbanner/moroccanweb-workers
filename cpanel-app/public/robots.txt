@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://www.moroccanwebworkers.com
+Sitemap: https://www.moroccanwebworkers.com/sitemap.xml

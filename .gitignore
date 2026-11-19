@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+next-env.d.ts
+*.log
+.DS_Store
+# cpanel-app/ IS committed on purpose (pre-built site for cPanel)
+cpanel-app/node_modules

@@ -1,0 +1,26 @@
+{
+  "name": "mww-digital-studio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:static": "next build",
+    "start": "node server.js",
+    "build:cpanel": "node scripts/build-cpanel.mjs"
+  },
+  "dependencies": {
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
