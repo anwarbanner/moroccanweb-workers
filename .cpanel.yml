@@ -1,10 +1,10 @@
 ---
 # cPanel Git Version Control → "Deploy HEAD Commit" runs these tasks.
-# It copies the pre-built Node.js app into ~/mww-site (the "Application root"
-# of your app in "Setup Node.js App") and restarts it.
+# Copies the pre-built Node.js app into the "Application root" of the app
+# created in "Setup Node.js App" (here: ~/moroccanwebworkers) and restarts it.
 deployment:
   tasks:
-    - export DEPLOYPATH=$HOME/mww-site/
+    - export DEPLOYPATH=$HOME/moroccanwebworkers/
     - mkdir -p $DEPLOYPATH
     - /bin/cp -R cpanel-app/. $DEPLOYPATH
     - mkdir -p $DEPLOYPATH/tmp

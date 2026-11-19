@@ -14,19 +14,22 @@ Le dossier **`cpanel-app/`** contient le site **déjà compilé** : rien à comp
 ### Première installation (une seule fois)
 1. **Setup Node.js App** → **Create Application**
    - Node.js version : **20** (ou ≥ 18.18) · Mode : **Production**
-   - Application root : **`mww-site`**
+   - Application root : **`moroccanwebworkers`** (doit correspondre à `DEPLOYPATH` dans `.cpanel.yml`)
    - Application URL : votre domaine · Startup file : **`server.js`**
    - **Create**
 2. **Git™ Version Control** → **Create**
    - Clone URL : `https://github.com/anwarbanner/moroccanweb-workers.git`
    - Repository Path : `repositories/moroccanweb-workers` · **Create**
 3. Dans Git™ Version Control → **Manage** → onglet **Pull or Deploy** → **Deploy HEAD Commit**
-   (le fichier `.cpanel.yml` copie `cpanel-app/` dans `~/mww-site` et redémarre l'app).
+   (le fichier `.cpanel.yml` copie `cpanel-app/` dans `~/moroccanwebworkers` et redémarre l'app).
+   ⚠️ Le *Repository Path* doit être **différent** du dossier de l'application (ex. `repositories/moroccanweb-workers`).
 4. **Setup Node.js App** → ✏️ sur l'app → **Run NPM Install** → **Restart**.
 5. Ouvrez `https://votredomaine.com/fr/`
 
-> Si `public_html` contient un ancien `index.html` / `index.php`, supprimez-le.
-> En cas d'erreur 503 : vérifiez la version Node, refaites **Run NPM Install** puis **Restart** ; voir `~/mww-site/stderr.log`.
+> **`public_html`** : déplacez les fichiers de l'ancien site dans un dossier de sauvegarde **hors** de `public_html`
+> (gardez seulement `.htaccess`, `.well-known` et `cgi-bin`), puis remplacez le `.htaccess` par
+> [`cpanel-config/public_html.htaccess`](cpanel-config/public_html.htaccess) (HTTPS + www + configuration Passenger).
+> En cas d'erreur 503 : vérifiez la version Node, refaites **Run NPM Install** puis **Restart** ; voir `~/moroccanwebworkers/stderr.log`.
 > Si le dépôt est **privé**, cPanel demande une clé SSH ou un token GitHub pour le clonage.
 
 ### Mettre à jour le site

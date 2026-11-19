@@ -1,0 +1,25 @@
+# ============================================================
+#  public_html/.htaccess — MWW Digital Studio (Next.js / Node)
+#  The site is served by the Node.js app (Passenger) below.
+# ============================================================
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# 1) Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2) Force www (canonical domain used by the site's SEO: https://www.moroccanwebworkers.com)
+RewriteCond %{HTTP_HOST} ^moroccanwebworkers\.com$ [NC]
+RewriteRule ^ https://www.moroccanwebworkers.com%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home2/moroccaw/moroccanwebworkers"
+PassengerBaseURI "/"
+PassengerNodejs "/home2/moroccaw/nodevenv/moroccanwebworkers/20/bin/node"
+PassengerAppType node
+PassengerStartupFile server.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
